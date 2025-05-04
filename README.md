@@ -1,54 +1,41 @@
-# React + TypeScript + Vite
+# 🧾 Bewell POS System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive Point of Sale (POS) system for Bewell, designed for smooth usage across Notebook, Tablet, and Mobile devices. The system enables efficient cart management, flexible discounting, and seamless checkout experience.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✅ Features
 
-## Expanding the ESLint configuration
+### 🛍️ Product Component (30 points)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Displays products with responsive layout:
+  - **Notebook/Tablet:** 6 products per row
+  - **Mobile:** 4 products per row
+- Supports **searching products** by name or product code
+- Includes a **checkout preview area** for reviewing selected items
+- Allows **adding products to cart** for payment processing
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### 💳 Checkout Component (40 points)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- All price calculations use **2 decimal places** (e.g., `1000.00`, `999.55`)
+- Supports discounts per product:
+  - **Fixed amount:** e.g., `100 Baht`, `500 Baht`
+  - **Percentage-based:** e.g., `3%`, `5%`, `10%`
+  - Example: A 100 Baht discount on a 1000 Baht item updates the display to `900.00`
+- Supports **marking items as “deliver later”**, which separates them into a new entry
+- Allows **removing products from the cart**
+- Displays **final payment summary**, including:
+  - Total price after item-level discounts (excluding VAT)
+  - **7% VAT** breakdown
+  - Additional **end-of-bill discount input**
+  - Final total amount payable
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 🎨 Design and UX/UI (30 points)
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- Focuses on intuitive UI and efficient cashier workflow
+- UX enhancements include:
+  - Color schemes, fonts, padding, and icon usage
+  - Component layout and alignment for ease of use
+  - Flow optimizations to reduce user error and speed up operations
+
+---
